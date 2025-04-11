@@ -25,7 +25,7 @@ a,
 
 a:hover,
 .list_item:hover {
-  color: rgb(219, 61, 4);
+  color: rgb(193, 53, 2);
 }
 .cart-icon{
     background: none;
@@ -35,6 +35,23 @@ a:hover,
     margin-right: 30px;
 }
 
+/* SignUp & SignIn Buttons */
+
+.custom-toggle {
+    border-color: rgb(219, 61, 4) !important;
+    color: rgb(219, 61, 4) !important;
+  }
+  
+  .custom-toggle:checked,
+  .custom-toggle.active,
+  .custom-toggle:focus,
+  .custom-toggle:checked:focus,
+  .custom-toggle:checked:hover {
+    background-color: rgb(219, 61, 4) !important;
+    border-color: rgb(219, 61, 4) !important;
+    color: white !important;
+  }
+  
 /* Slider.css */
 
 .carousel-item img {
@@ -93,6 +110,31 @@ a:hover,
     position: relative;
   }
   
+
+  /* Cards */
+  .btn-cart {
+    background-color: rgb(219, 61, 4) !important;
+    border-color: rgb(219, 61, 4) !important;
+    color: white !important;
+  }
+.btn-cart:hover{
+    background-color: rgb(193, 53, 2) !important;
+    border-color: rgb(219, 61, 4) !important;
+    color: white !important;
+}  
+.btn-out-cart,
+.btn-in-cart{
+    background-color: white !important;
+    border-color: rgb(219, 61, 4) !important;
+    color: rgb(219, 61, 4) !important;
+}
+.btn-out-cart:hover,
+.btn-in-cart:hover{
+    background-color: rgb(219, 61, 4) !important;
+    border-color: rgb(219, 61, 4) !important;
+    color: white !important;
+}
+
   /* Footer styling */
   .site-footer {
     display: flex;

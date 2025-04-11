@@ -3,8 +3,8 @@ import Carousel from 'react-bootstrap/Carousel';
 import Form from 'react-bootstrap/Form';
 
 import sliderOne from '../assets/sliderOne.png';
-import sliderTwo from '../assets/sliderTwo.png';
-import sliderThree from '../assets/sliderThree.png';
+import sliderTwo from '../assets/food_13.png';
+import sliderThree from '../assets/food_17.png';
 
 const Slider = () => {
   return (

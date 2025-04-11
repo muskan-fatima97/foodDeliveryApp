@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Card, Button, Container, Row, Col } from 'react-bootstrap';
 import Rating from '@mui/material/Rating';
 import Shwarma from '../assets/shwarma.png';
@@ -9,39 +9,25 @@ import Fusili from '../assets/food_26.png';
 import Noodells from '../assets/food_32.png';
 import CheeseCake from '../assets/food_18.png';
 import Icecream from '../assets/food_9.png';
+
 const Cards = () => {
-  const card = [
-    { id: 1, image: Shwarma, name: "Arabian Shawarma", description: '$20.00 $13.00', rating: 5, button: 'Vegetable' },
-    { id: 2, image: Rigatoni, name: "Rigatoni Bacon Pasta", description: '$20.00 $13.00', rating: 5, button: 'Fresh' },
-    { id: 3, image: Fusili, name: "Hot Sauce Fusilli Pasta", description: '$20.00 $13.00', rating: 5, button: 'Millets' },
-    { id: 4, image: ClubSandwitch, name: "White Sauce Tagliatelle", description: '$20.00 $13.00', rating: 5, button: 'Vegetable' },
-    { id: 5, image: Pasta, name: "Cheese Patties", description: '$20.00 $13.00', rating: 5, button: 'Health' },
-    { id: 6, image: CheeseCake, name: "Strawberry Pie Cake", description: '$20.00 $13.00', rating: 5, button: 'Nuts' },
-    { id: 7, image: Noodells, name: "Linguinie Steemed Noodels", description: '$20.00 $13.00', rating: 5, button: 'Fresh' },
-    { id: 8, image: Icecream, name: "Red Berry Ice Cream", description: '$20.00 $13.00', rating: 5, button: 'Fresh' },
+  const cardData = [
+    { id: 1, image: Shwarma, name: "Arabian Shawarma", description: '$20.00 $13.00', rating: 5 },
+    { id: 2, image: CheeseCake, name: "Strawberry Pie Cake", description: '$20.00 $13.00', rating: 5 },
+    { id: 3, image: Fusili, name: "Hot Sauce Fusilli Pasta", description: '$20.00 $13.00', rating: 5 },
+    { id: 4, image: ClubSandwitch, name: "White Sauce Tagliatelle", description: '$20.00 $13.00', rating: 5 },
+    { id: 5, image: Icecream, name: "Red Berry Ice Cream", description: '$20.00 $13.00', rating: 5 },
+    { id: 6, image: Rigatoni, name: "Rigatoni Bacon Pasta", description: '$20.00 $13.00', rating: 5 },
+    { id: 7, image: Noodells, name: "Linguinie Steemed Noodels", description: '$20.00 $13.00', rating: 5 },
+    { id: 8, image: Pasta, name: "Cheese Patties", description: '$20.00 $13.00', rating: 5 },
   ];
+
   return (
-    <Container fluid className="mt-4">
-      <Row className="justify-content-center">
-        {card.map((item, index) => (
-          <Col key={index} md={3} sm={6} xs={12} className="product-col">
-            <Card className="product-card">
-              <div className="image-container">
-                <Card.Img variant="top" src={item.image} className="product-img" />
-                
-              </div>
-              <Card.Body>
-                <Card.Title>{item.name}</Card.Title>
-                <Card.Text>{item.description}</Card.Text>
-                <Rating value={item.rating} readOnly size="small" />
-                <div className="hover-overlay">
-                  <Button variant="success" className="hover-button">Add to Cart</Button>
-                </div>
-                <div className="category-btn mt-2">
-                  <Button size="sm" variant="outline-primary">{item.button}</Button>
-                </div>
-              </Card.Body>
-            </Card>
+    <Container className="mt-4">
+      <Row>
+        {cardData.map((item) => (
+          <Col key={item.id} md={3} sm={6} xs={12} className="mb-4">
+            <FoodCard item={item} />
           </Col>
         ))}
       </Row>
@@ -49,4 +35,29 @@ const Cards = () => {
   );
 };
 
-export default Cards
+const FoodCard = ({ item }) => {
+  const [quantity, setQuantity] = useState(0);
+
+  return (
+    <Card>
+      <Card.Img variant="top" src={item.image} />
+      <Card.Body>
+        <Card.Title>{item.name}</Card.Title>
+        <Card.Text>{item.description}</Card.Text>
+        <Rating value={item.rating} readOnly size="small" />
+
+        <div className="d-flex justify-content-between align-items-center mt-3 ">
+          <Button className="btn-cart">Add to Cart</Button>
+
+          <div className="d-flex align-items-center">
+            <Button size="sm" className='btn-out-cart' onClick={() => setQuantity(q => Math.max(1, q - 1))}>−</Button>
+            <span className="mx-2">{quantity}</span>
+            <Button size="sm" className='btn-in-cart' onClick={() => setQuantity(q => q + 1)}>+</Button>
+          </div>
+        </div>
+      </Card.Body>
+    </Card>
+  );
+};
+
+export default Cards;
