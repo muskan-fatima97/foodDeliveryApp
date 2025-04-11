@@ -9,6 +9,8 @@ import Contact from './pages/Contact';
 import SignUp from './pages/SignUp';
 import SignIn from './pages/SignIn';
 import Home from './pages/Home';
+import Slider from './components/Slider';
+import Cards from './components/Cards';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -23,6 +25,8 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/signin" element={<SignIn />} />
       </Routes>
+      <Slider/>
+      <Cards/>
       <Footer />
     </BrowserRouter>
   )
