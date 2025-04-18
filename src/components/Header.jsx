@@ -9,6 +9,9 @@ import ToggleButton from 'react-bootstrap/ToggleButton';
 import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
+import { useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+
 
 
 const Header = () => {
@@ -30,9 +33,16 @@ const Header = () => {
     const [radioValue, setRadioValue] = useState('1');
 
     const radios = [
-      { name: 'SignIn', value: '1' },
+      { name: 'LogIn', value: '1' },
       { name: 'SignUp', value: '2' },
     ];
+  
+    const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleAuthToggle = (route) => {
+    navigate(`/${route}`, { state: { backgroundLocation: location } });
+  };
   
   return (
     <Navbar expand="lg" className="navbar">
@@ -56,22 +66,26 @@ const Header = () => {
             <button className='cart-icon'>
               <FontAwesomeIcon icon={faCartShopping} />
             </button>
-          <ButtonGroup>
-        {radios.map((radio, idx) => (
-          <ToggleButton
-            key={idx}
-            id={`radio-${idx}`}
-            type="radio"
-            variant={idx % 2 ? 'outline-success' : 'outline-danger'}
-            name="radio"
-            value={radio.value}
-            checked={radioValue === radio.value}
-            onChange={(e) => setRadioValue(e.currentTarget.value)}
-          >
-            {radio.name}
-          </ToggleButton>
-        ))}
-      </ButtonGroup>
+            <ButtonGroup className="auth-toggle-group">
+      <ToggleButton
+        type="radio"
+        variant="outline-none"
+        value="1"
+        className="auth-toggle-btn"
+        onClick={() => handleAuthToggle('signin')}
+      >
+        LogIn
+      </ToggleButton>
+      <ToggleButton
+        type="radio"
+        variant="outline-none"
+        value="2"
+        className="auth-toggle-btn"
+        onClick={() => handleAuthToggle('signup')}
+      >
+        SignUp
+      </ToggleButton>
+    </ButtonGroup>
           </Nav>
         </Navbar.Collapse>
       </Container>

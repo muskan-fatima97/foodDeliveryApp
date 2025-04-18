@@ -12,14 +12,14 @@ import Icecream from '../assets/food_9.png';
 
 const Cards = () => {
   const cardData = [
-    { id: 1, image: Shwarma, name: "Arabian Shawarma", description: '$20.00 $13.00', rating: 5 },
-    { id: 2, image: CheeseCake, name: "Strawberry Pie Cake", description: '$20.00 $13.00', rating: 5 },
-    { id: 3, image: Fusili, name: "Hot Sauce Fusilli Pasta", description: '$20.00 $13.00', rating: 5 },
-    { id: 4, image: ClubSandwitch, name: "White Sauce Tagliatelle", description: '$20.00 $13.00', rating: 5 },
-    { id: 5, image: Icecream, name: "Red Berry Ice Cream", description: '$20.00 $13.00', rating: 5 },
-    { id: 6, image: Rigatoni, name: "Rigatoni Bacon Pasta", description: '$20.00 $13.00', rating: 5 },
-    { id: 7, image: Noodells, name: "Linguinie Steemed Noodels", description: '$20.00 $13.00', rating: 5 },
-    { id: 8, image: Pasta, name: "Cheese Patties", description: '$20.00 $13.00', rating: 5 },
+    { id: 1, image: Shwarma, name: "Arabian Shawarma", description: '$20.00 ', rating: 5 },
+    { id: 2, image: CheeseCake, name: "Strawberry Pie Cake", description: '$20.00 ', rating: 5 },
+    { id: 3, image: Fusili, name: "Hot Sauce Fusilli Pasta", description: '$20.00 ', rating: 5 },
+    { id: 4, image: ClubSandwitch, name: "White Sauce Tagliatelle", description: '$20.00 ', rating: 5 },
+    { id: 5, image: Icecream, name: "Red Berry Ice Cream", description: '$20.00 ', rating: 5 },
+    { id: 6, image: Rigatoni, name: "Rigatoni Bacon Pasta", description: '$20.00 ', rating: 5 },
+    { id: 7, image: Noodells, name: "Linguinie Steemed Noodels", description: '$20.00 ', rating: 5 },
+    { id: 8, image: Pasta, name: "Cheese Patties", description: '$20.00 ', rating: 5 },
   ];
 
   return (
@@ -47,11 +47,11 @@ const FoodCard = ({ item }) => {
         <Rating value={item.rating} readOnly size="small" />
 
         <div className="d-flex justify-content-between align-items-center mt-3 ">
-          <Button className="btn-cart">Add to Cart</Button>
-
+        <Button className="btn-cart text-nowrap">Add to Cart</Button>
           <div className="d-flex align-items-center">
-            <Button size="sm" className='btn-out-cart' onClick={() => setQuantity(q => Math.max(1, q - 1))}>−</Button>
-            <span className="mx-2">{quantity}</span>
+            <Button size="sm" className='btn-out-cart' onClick={() => setQuantity(q => Math.max(0, q - 1))}>−</Button>
+            <span className="mx-2 quantity-box">{quantity}</span>
+
             <Button size="sm" className='btn-in-cart' onClick={() => setQuantity(q => q + 1)}>+</Button>
           </div>
         </div>

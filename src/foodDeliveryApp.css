@@ -11,7 +11,7 @@
 }
 
 .LogoName{
-    font-size: 1.5rem;
+    font-size: 24px;
     font-weight: bold;
     color: rgb(219, 61, 4);
     text-decoration: none;
@@ -37,27 +37,37 @@ a:hover,
 
 /* SignUp & SignIn Buttons */
 
-.custom-toggle {
-    border-color: rgb(219, 61, 4) !important;
-    color: rgb(219, 61, 4) !important;
-  }
-  
-  .custom-toggle:checked,
-  .custom-toggle.active,
-  .custom-toggle:focus,
-  .custom-toggle:checked:focus,
-  .custom-toggle:checked:hover {
-    background-color: rgb(219, 61, 4) !important;
-    border-color: rgb(219, 61, 4) !important;
-    color: white !important;
-  }
+/* Styling for toggle button group */
+.auth-toggle-btn {
+  border-color: rgb(219, 61, 4) !important;
+  color: rgb(219, 61, 4) !important;
+  background-color: transparent !important;
+  font-weight: bold !important;
+  padding: 6px 16px !important;
+  transition: all 0.3s ease !important;
+}
+
+.auth-toggle-btn:hover {
+  background-color: rgb(193, 53, 2) !important;
+  color: white !important;
+}
+
+.auth-toggle-btn.active,
+.auth-toggle-btn:active,
+.auth-toggle-btn:checked {
+  background-color: rgb(193, 53, 2) !important;
+  border-color: rgb(193, 53, 2) !important;
+  color: white !important;
+}
+
+
   
 /* Slider.css */
 
 .carousel-item img {
     width: 100%;
-    height: 500px; /* Set desired height */
-    object-fit: cover; /* Ensures all images fill without stretching */
+    height: 500px; 
+    object-fit: cover; 
   }
   .carousel-item .overlay {
     position: absolute;
@@ -65,18 +75,22 @@ a:hover,
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.4); /* adjust darkness */
+    background-color: rgba(0, 0, 0, 0.7); 
     z-index: 1;
   }
+  .crousel-details{
+    margin-bottom: 120px !important; 
+  }
+
   /* Slider.css */
 
   .slider-input {
-    width: 10px; /* Custom width */
+    width: 10px; 
     height: 45px;
     border: 2px solid #ff4500;
     border-radius: 8px;
     padding: 10px;
-    font-size: 1rem;
+    font-size: 16px;
     color: #333;
     background-color: #ffffffd0;
     outline: none;
@@ -87,32 +101,45 @@ a:hover,
     border-color: #d12c00;
     box-shadow: 0 0 5px rgba(255, 69, 0, 0.6);
   }
-  
-  .carousel-caption h3,
-  .carousel-caption p {
-    color: #ffffff; /* Change to any color you like */
-  }
-  /* .carousel-caption {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-} */
-  
+ 
+
   .input-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 12px; /* Tiny space between input fields */
-    margin-bottom: 1rem;
+    gap: 12px; 
+    margin-bottom: 16px;
     z-index: 2;
     position: relative;
   }
   
 
   /* Cards */
-  .btn-cart {
+.card {
+  border: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.card-img-top {
+  transition: transform 0.3s ease;
+}
+
+.card-img-top:hover {
+  transform: scale(1.05);
+}
+
+.quantity-box {
+  width: 32px;   
+  text-align: center; 
+  display: inline-block;
+}
+
+.btn-cart {
     background-color: rgb(219, 61, 4) !important;
     border-color: rgb(219, 61, 4) !important;
     color: white !important;
@@ -135,6 +162,43 @@ a:hover,
     color: white !important;
 }
 
+.custom-submit-btn {
+  background-color: rgb(219, 61, 4) !important;
+  border-color: rgb(219, 61, 4) !important; /* optional, to match border */
+  color: white; /* optional, for text color */
+}
+.custom-submit-btn:hover{
+  transform: scale(1.05);
+}
+@media (min-width: 570px) {
+  .btn-cart {
+    padding: 6px 12px;
+    font-size: 15px;
+    min-width: 110px;
+  }
+
+  .btn-in-cart,
+  .btn-out-cart {
+    padding: 6px 10px;
+    font-size: 14px;
+    min-width: 22px;
+    text-align: center;
+  }
+
+  .quantity-box {
+    font-size: 16px;
+    min-width: 24px;
+    text-align: center;
+    display: inline-block;
+  }
+
+  .d-flex.align-items-center {
+    gap: 6px;
+  }
+}
+
+
+
   /* Footer styling */
   .site-footer {
     display: flex;
@@ -150,7 +214,7 @@ a:hover,
   .footer-logo {
     flex: 1;
     text-align: left;
-    font-size: 1.4rem;
+    font-size: 22px;
     font-weight: bold;
     color: #ff5722;
   }
@@ -178,7 +242,7 @@ a:hover,
   .footer-right {
     flex: 1;
     text-align: right;
-    font-size: 0.9rem;
+    font-size: 15px;
     color: #bbb;
   }
   
