@@ -112,6 +112,10 @@ a:hover,
     z-index: 2;
     position: relative;
   }
+  .crousel-details h2,
+  .crousel-details p {
+    color: white !important;
+  }
   
 
   /* Cards */
@@ -164,8 +168,9 @@ a:hover,
 
 .custom-submit-btn {
   background-color: rgb(219, 61, 4) !important;
-  border-color: rgb(219, 61, 4) !important; /* optional, to match border */
-  color: white; /* optional, for text color */
+  border-color: rgb(219, 61, 4) !important; 
+  
+  color: white; 
 }
 .custom-submit-btn:hover{
   transform: scale(1.05);
