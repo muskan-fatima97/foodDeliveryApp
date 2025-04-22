@@ -11,6 +11,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
+import AddToCart from './AddToCart';
 
 
 
@@ -28,7 +29,11 @@ const Header = () => {
         {
             path: '/contact',
             name: "Contact"
-        }
+        },
+        {
+          path: '/addtocart',
+          name: "AddToCart"
+      }
     ];
     const [radioValue, setRadioValue] = useState('1');
 
@@ -63,9 +68,10 @@ const Header = () => {
             }
           </Nav>
           <Nav className='sign-buttons'>
-            <button className='cart-icon'>
-              <FontAwesomeIcon icon={faCartShopping} />
-            </button>
+          <button className='cart-icon' onClick={() => navigate('/addtocart')}>
+  <FontAwesomeIcon icon={faCartShopping} />
+</button>
+
             <ButtonGroup className="auth-toggle-group">
       <ToggleButton
         type="radio"

@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import './foodDeliveryApp.css';
 import Header from './components/Header';
@@ -13,28 +12,35 @@ import Cards from './components/Cards';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faFacebookF, faGoogle, faWindows } from '@fortawesome/free-brands-svg-icons';
 import Modal from 'react-bootstrap/Modal';
+import AddToCart from './components/AddToCart';
 
 library.add(faFacebookF, faGoogle, faWindows);
 
 const App = () => {
   const location = useLocation();
   const state = location.state;
+  const isLandingPage = location.pathname === '/';
 
   return (
     <>
       <Header />
       <Routes location={state?.backgroundLocation || location}>
+        <Route path="/" element={
+          <>
+            <Slider />
+            <Cards />
+            <Footer />
+          </>
+        } />
         <Route path="/home" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/signin" element={<SignIn />} />
+        <Route path="/addtocart" element={<AddToCart />} />
       </Routes>
-      <Slider />
-      <Cards />
-      <Footer />
 
-{/* Code for popups  of Login & SignUp */}
+      {/* Code for Popups of SignIn/ SignUp */}
       {state?.backgroundLocation && (
         <Routes>
           <Route
