@@ -29,11 +29,7 @@ const Header = () => {
         {
             path: '/contact',
             name: "Contact"
-        },
-        {
-          path: '/addtocart',
-          name: "AddToCart"
-      }
+        }
     ];
     const [radioValue, setRadioValue] = useState('1');
 
