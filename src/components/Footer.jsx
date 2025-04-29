@@ -8,7 +8,6 @@ const Footer = () => {
         <h3>Foodeez.</h3>
       </div>
 
-      {/* Center: Links */}
       <div className="footer-links">
         <a href="#email">Email</a>
         <a href="#contact">Contact</a>
@@ -16,7 +15,6 @@ const Footer = () => {
         <a href="#number">Number</a>
       </div>
 
-      {/* Right: Snipped or CTA */}
       <div className="footer-right">
         <p>© {new Date().getFullYear()}</p>
       </div>

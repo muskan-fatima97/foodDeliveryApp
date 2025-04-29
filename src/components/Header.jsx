@@ -11,11 +11,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
-import AddToCart from './AddToCart';
-
-
+import { useCart } from '../context/cartContext';
 
 const Header = () => {
+
+  const { cartCount } = useCart(); 
 
     const menuData = [
         {
@@ -66,6 +66,9 @@ const Header = () => {
           <Nav className='sign-buttons'>
           <button className='cart-icon' onClick={() => navigate('/addtocart')}>
   <FontAwesomeIcon icon={faCartShopping} />
+  {cartCount > 0 && (
+        <span className="cart-badge">{cartCount}</span> 
+      )}
 </button>
 
             <ButtonGroup className="auth-toggle-group">

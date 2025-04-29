@@ -1,7 +1,7 @@
 import React from 'react'
 import Carousel from 'react-bootstrap/Carousel';
 import Form from 'react-bootstrap/Form';
-
+import Pagination from 'react-bootstrap/Pagination';
 import sliderOne from '../assets/sliderOne.png';
 import sliderTwo from '../assets/food_13.png';
 import sliderThree from '../assets/food_17.png';
@@ -56,6 +56,7 @@ const Slider = () => {
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>
+    
   );
 }
 

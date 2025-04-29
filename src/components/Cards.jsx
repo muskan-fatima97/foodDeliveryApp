@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Card, Button, Container, Row, Col } from 'react-bootstrap';
 import Rating from '@mui/material/Rating';
+import { useCart } from '../context/cartContext';
 import Shwarma from '../assets/shwarma.png';
 import Rigatoni from '../assets/food_25.png';
 import ClubSandwitch from '../assets/food_27.png';
@@ -36,7 +37,13 @@ const Cards = () => {
 };
 
 const FoodCard = ({ item }) => {
-  const [quantity, setQuantity] = useState(0);
+  const [quantity, setQuantity] = useState(1);
+  const { addToCart } = useCart();
+
+  const handleAddToCart = () => {
+    addToCart(item, quantity);
+    setQuantity(1); 
+  };
 
   return (
     <Card>
@@ -46,13 +53,26 @@ const FoodCard = ({ item }) => {
         <Card.Text>{item.description}</Card.Text>
         <Rating value={item.rating} readOnly size="small" />
 
-        <div className="d-flex justify-content-between align-items-center mt-3 ">
-        <Button className="btn-cart text-nowrap">Add to Cart</Button>
+        <div className="d-flex justify-content-between align-items-center mt-3">
+          <Button className="btn-cart text-nowrap" onClick={handleAddToCart}>
+            Add to Cart
+          </Button>
           <div className="d-flex align-items-center">
-            <Button size="sm" className='btn-out-cart' onClick={() => setQuantity(q => Math.max(0, q - 1))}>−</Button>
+            <Button
+              size="sm"
+              className="btn-out-cart"
+              onClick={() => setQuantity(q => Math.max(1, q - 1))}
+            >
+              −
+            </Button>
             <span className="mx-2 quantity-box">{quantity}</span>
-
-            <Button size="sm" className='btn-in-cart' onClick={() => setQuantity(q => q + 1)}>+</Button>
+            <Button
+              size="sm"
+              className="btn-in-cart"
+              onClick={() => setQuantity(q => q + 1)}
+            >
+              +
+            </Button>
           </div>
         </div>
       </Card.Body>
